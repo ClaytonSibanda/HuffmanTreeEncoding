@@ -123,6 +123,33 @@ assignment3/fast:
 	$(MAKE) -f CMakeFiles/assignment3.dir/build.make CMakeFiles/assignment3.dir/build
 .PHONY : assignment3/fast
 
+huffman.o: huffman.cpp.o
+
+.PHONY : huffman.o
+
+# target to build an object file
+huffman.cpp.o:
+	$(MAKE) -f CMakeFiles/assignment3.dir/build.make CMakeFiles/assignment3.dir/huffman.cpp.o
+.PHONY : huffman.cpp.o
+
+huffman.i: huffman.cpp.i
+
+.PHONY : huffman.i
+
+# target to preprocess a source file
+huffman.cpp.i:
+	$(MAKE) -f CMakeFiles/assignment3.dir/build.make CMakeFiles/assignment3.dir/huffman.cpp.i
+.PHONY : huffman.cpp.i
+
+huffman.s: huffman.cpp.s
+
+.PHONY : huffman.s
+
+# target to generate assembly for a file
+huffman.cpp.s:
+	$(MAKE) -f CMakeFiles/assignment3.dir/build.make CMakeFiles/assignment3.dir/huffman.cpp.s
+.PHONY : huffman.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... assignment3"
+	@echo "... huffman.o"
+	@echo "... huffman.i"
+	@echo "... huffman.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

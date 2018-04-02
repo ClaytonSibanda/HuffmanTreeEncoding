@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.cpp" "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/cmake-build-debug/CMakeFiles/assignment3.dir/huffman.cpp.o"
   "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/main.cpp" "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/cmake-build-debug/CMakeFiles/assignment3.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

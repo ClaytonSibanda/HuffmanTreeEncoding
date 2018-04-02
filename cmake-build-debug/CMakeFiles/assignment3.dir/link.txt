@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/assignment3.dir/main.cpp.o  -o assignment3 
+/usr/bin/c++  -g   CMakeFiles/assignment3.dir/main.cpp.o CMakeFiles/assignment3.dir/huffman.cpp.o  -o assignment3 

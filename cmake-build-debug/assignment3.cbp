@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.cpp">
+			<Option target="assignment3"/>
+		</Unit>
 		<Unit filename="/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.h">
 			<Option target="assignment3"/>
 		</Unit>
