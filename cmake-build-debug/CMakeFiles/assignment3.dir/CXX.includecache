@@ -6,7 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.cpp
+huffman.h
+/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.h
+iostream
+-
+
+/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.h
+memory
+-
+queue
+-
+unordered_map
+-
+iostream
+-
+
 /home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/main.cpp
 iostream
 -
+string
+-
+huffman.h
+/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.h
 
