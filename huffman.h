@@ -79,14 +79,26 @@ public:
     }
 };
 
+
 namespace  SBNCLA002{
-    void populateMap();
-    void buildTree();
+
+
+
+    void populateMap(std::string,std::unordered_map<char,int> & huffMap);
+    void buildTree(std::priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> &huffQueue);
     void inOrder(std::shared_ptr<HuffmanNode> &node,std::string);
     void printTable(std::string);
+    void populateQueue(std::unordered_map<char,int>& huffMap,std::priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> &huffQueue);    void bitStream();
+    void decode();
 }
 
-
+//class to associate my containers with a object
+class containerClass{
+public:
+ std::unordered_map<char,int> huffMap;
+ //define a priority queue for building the Tree
+ std::priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> huffQueue;
+};
 
 
 #endif //ASSIGNMENT3_HUFFMAN_H

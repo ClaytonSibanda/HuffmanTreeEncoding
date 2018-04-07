@@ -11,9 +11,10 @@ int main(int argc,char* argv[]) {
    string inputfile =string(argv[1]);
    string outputfile = string(argv[2]);
 cout<<inputfile<<" "<<outputfile<<endl;
-
-SBNCLA002::populateMap();
-SBNCLA002::buildTree();
+containerClass c;
+SBNCLA002::populateMap(inputfile,c.huffMap);
+SBNCLA002::populateQueue(c.huffMap,c.huffQueue);
+SBNCLA002::buildTree(c.huffQueue);
 SBNCLA002::printTable(outputfile);
 
 

@@ -93,6 +93,9 @@
 		<Unit filename="/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/main.cpp">
 			<Option target="assignment3"/>
 		</Unit>
+		<Unit filename="/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/tests.cpp">
+			<Option target="assignment3"/>
+		</Unit>
 		<Unit filename="/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

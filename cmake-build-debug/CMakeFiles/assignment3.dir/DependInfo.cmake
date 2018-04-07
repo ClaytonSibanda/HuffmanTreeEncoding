@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/huffman.cpp" "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/cmake-build-debug/CMakeFiles/assignment3.dir/huffman.cpp.o"
   "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/main.cpp" "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/cmake-build-debug/CMakeFiles/assignment3.dir/main.cpp.o"
+  "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/tests.cpp" "/home/clayza/Desktop/3rd year/CSC3022H/assignments/assignment3/cmake-build-debug/CMakeFiles/assignment3.dir/tests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

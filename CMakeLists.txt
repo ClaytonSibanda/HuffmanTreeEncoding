@@ -3,4 +3,4 @@ project(assignment3)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(assignment3 main.cpp huffman.h huffman.cpp)
+add_executable(assignment3 main.cpp huffman.h huffman.cpp tests.cpp)

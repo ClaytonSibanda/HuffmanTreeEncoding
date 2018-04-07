@@ -52,49 +52,48 @@ HuffmanNode::HuffmanNode() :letter(0),frequency(0){
 
 
 
-std::unordered_map<char,int> huffMap;
-//define a priority queue for building the Tree
-std::priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> huffQueue;
+//std::unordered_map<char,int> huffMap;
+////define a priority queue for building the Tree
+//std::priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> huffQueue;
 
 //populate the map with characters and frequncies
-void SBNCLA002::populateMap(){
+void SBNCLA002::populateMap(string filename,unordered_map<char,int> &huffMap){
 
+    ifstream in(filename);
+    char c;
+    while(in.get(c)){
+        if(huffMap.find(c)==huffMap.end()){
 
-
-    string s="jehjrherehjreqhrkehqkjhrlq";
-    for(int i=0;i<s.size();i++){
-        if(huffMap.find(s[i])==huffMap.end()){
-
-            huffMap.insert({s[i],1});
+            huffMap.insert({c,1});
         }
         else{
-            huffMap[s[i]]++;
+            huffMap[c]++;
 
         }
     }
 
-//loop over a huffMap
 
+}
+
+void SBNCLA002::populateQueue(unordered_map<char,int>& huffMap,priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> &huffQueue){
+
+    //loop over a huffMap  to populate queue
     for(auto item:huffMap){
         HuffmanNode node;
         node.setLetter(item.first);
         node.setFrequency(item.second);
         huffQueue.push(node);
- //   cout<<(char)node.getLetter()<<":"<<node.getFrequency()<<'\t';
-        //int val =huffQueue.top().getFrequency();
-        //huffQueue.pop();
-       // cout<<"Top is "<<val<<endl;
+
     }
 }
 
 //lets build the tree here broe
-void SBNCLA002::buildTree() {
+void SBNCLA002::buildTree(priority_queue<HuffmanNode,std::vector<HuffmanNode>,Compare> &huffQueue) {
     cout<<"******** Now building the tree***********"<<endl;
 
     while (huffQueue.size()>1){
         HuffmanNode node;//internal node
         node.left=make_shared<HuffmanNode>(huffQueue.top());
-//        cout<<"first top is "<<huffQueue.top().getFrequency()<<endl;
 
         huffQueue.pop();//remove the first node
 
@@ -104,20 +103,16 @@ void SBNCLA002::buildTree() {
 
         node.setFrequency(node.left->getFrequency()+node.right->getFrequency());
         huffQueue.push(node);
-//       cout<<"The new right is "<<node.right->getFrequency()<<endl;
     }
     HuffmanTree tree;
     tree.setRoot(make_shared<HuffmanNode>(huffQueue.top()));
-   // cout<<"The new top is "<<huffQueue.top().left->getFrequency()<<endl;
     SBNCLA002::inOrder(tree.getRoot(),"");
 }
 
 
 //Traverse the tree here
 unordered_map<char,string> table;
-//string bitString ="";
 void SBNCLA002::inOrder(shared_ptr<HuffmanNode> &root,string bitString) {
-    //cout<<"running an inorder algorithm now"<<endl;
 
     if(!root) {
 
@@ -125,12 +120,10 @@ void SBNCLA002::inOrder(shared_ptr<HuffmanNode> &root,string bitString) {
         return;
     }
     if(root->left){
-//        bitString+="0";
         SBNCLA002::inOrder(root->left,bitString+"0");
 
     }
     if(root->right){
-//        bitString+="1";
         SBNCLA002::inOrder(root->right,bitString+"1");
 
 
@@ -138,22 +131,29 @@ void SBNCLA002::inOrder(shared_ptr<HuffmanNode> &root,string bitString) {
 
 //check if root is leaf
     if(!root->left && !root->right ){
-        cout<<(char)root->getLetter()<<": "<<root->getFrequency()<<": "<<bitString<<endl;
+        //cout<<(char)root->getLetter()<<": "<<root->getFrequency()<<": "<<bitString<<endl;
       table.insert({(char)root->getLetter(),bitString});
     }
 
 
 }
+/*This function writes the table to a file and also writes the binary to a compressed file
+ * */
+
 string buffer;
  void SBNCLA002::printTable(string filename){
-    filename+=".hdr";
-    ofstream file(filename);
-    file<<"count"<<" "<<table.size()<<endl;
+    string headername=filename+".hdr";
+    ofstream file(headername);
+    file<<"count :"<<" "<<table.size()<<endl;
+     ofstream out(filename,ios::out | ios::binary);
 
     for(auto item:table){
         buffer+=item.second;
-        cout<<item.first<<'\t'<<item.second<<endl;
+        out<<item.second<<endl;
+       // cout<<item.first<<'\t'<<item.second<<endl;
         file<<item.first<<'\t'<<item.second<<endl;
     }
+
+
 }
 
