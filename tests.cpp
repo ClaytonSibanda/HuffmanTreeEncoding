@@ -83,23 +83,63 @@ SCENARIO("Populating priority queue from Map","[queue]")
    }
 }
 
+SCENARIO("building a tree","[buildTree]"){
+    containerClass c;
+    std::string testString ="claytonsibanda12345";
+    GIVEN("An empty huffman tree of nodes"){
+        HuffmanTree tree;
+        WHEN("The queue is empty"){
+            SBNCLA002::populateQueue(c.huffMap,c.huffQueue);
+            SBNCLA002::buildTree(c.huffQueue);
+            THEN("tree should also be empty"){
+                REQUIRE(tree.isEmpty(tree.getRoot()));
+                REQUIRE(c.huffQueue.size()==0);
+
+            }
+        }
+        WHEN("The queue is filled"){
+            SBNCLA002::populateMap(testString,c.huffMap);
+            SBNCLA002::populateQueue(c.huffMap,c.huffQueue);
+            SBNCLA002::buildTree(c.huffQueue);
+            THEN("tree should also not be empty"){
+                REQUIRE(!tree.isEmpty(tree.getRoot()));
+                REQUIRE(c.huffQueue.size()==1);
+
+            }
+        }
+
+    }
+}
 SCENARIO("building table/traversing the tree","[buildTable]"){
     containerClass c;
     std::string testString ="claytonsibanda12345";
-    GIVEN("a tree that as been built"){
+    GIVEN("an empty table  of characters and bitstreams"){
         HuffmanTree tree;
         SBNCLA002::populateMap(testString,c.huffMap);
         SBNCLA002::populateQueue(c.huffMap,c.huffQueue);
-        SBNCLA002::buildTree(c.huffQueue);
+//        SBNCLA002::buildTree(c.huffQueue);
 
-        WHEN("The is empty"){
+        WHEN("The tree is empty"){
+            tree.setRoot(nullptr);
+            SBNCLA002::inOrder(tree.getRoot(),"",c.table);
 
-         THEN("table map should also be empty"){
-             REQUIRE(!tree.isEmpty(tree.getRoot()));
-             REQUIRE(c.huffQueue.size()==1);
+            THEN("table map should also be empty"){
+             REQUIRE(tree.isEmpty(tree.getRoot()));
+             REQUIRE(c.table.empty());
 
          }
-     }
+        }
+
+        WHEN("The tree is filled and table has been build"){
+            SBNCLA002::buildTree(c.huffQueue);
+            SBNCLA002::inOrder(tree.getRoot(),"",c.table);
+            THEN("table map should not be empty"){
+                REQUIRE(!tree.isEmpty(tree.getRoot()));
+                REQUIRE(!(c.table.empty()));
+
+            }
+        }
+
     }
 }
 
