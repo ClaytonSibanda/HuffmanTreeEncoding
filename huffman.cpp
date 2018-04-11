@@ -118,7 +118,8 @@ void SBNCLA002::buildTree(priority_queue<HuffmanNode,std::vector<HuffmanNode>,Co
         huffQueue.push(node);
     }
 
-
+    HuffmanNode test =huffQueue.top();
+    //cout<<"Test the root: "<<test.left->right->getFrequency()<<endl;
 
 }
 
@@ -159,11 +160,33 @@ string buffer;
 
     for(auto item:table){
         buffer+=item.second;
-        out<<item.second<<endl;
-       // cout<<item.first<<'\t'<<item.second<<endl;
-        file<<item.first<<'\t'<<item.second<<endl;
-    }
+//        out<<item.second<<endl;
+       file<<item.first<<'\t'<<item.second<<endl;
+   SBNCLA002::bitStream(item.second,"compressed.bin");
 
+    }
+out.write(buffer.c_str(),buffer.size());
 
 }
+
+//Extra credit
+void SBNCLA002::bitStream(string str,string filename) {
+    int i;
+
+    unsigned char result = 0;
+    int num=1;
+    ofstream out(filename,ios::out | ios::binary | ios::app);
+unsigned long length =str.size();
+    for ( i = 0; i < length; ++i ) {
+        if ((str[i] == '1'))
+            result |= (num << (length - i));
+    }
+//cout<<"result is: "<<result<<endl;
+     out.write((char*)&result,sizeof(result));
+    out.close();
+
+ }
+
+
+
 
