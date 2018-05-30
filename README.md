@@ -1,2 +1,2 @@
 # HuffmanTreeEncoding
-Huffman tree for compressing text file using Huffman algorithm
+Huffman encoder for compressing text files using Huffman algorithm
